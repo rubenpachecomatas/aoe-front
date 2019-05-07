@@ -13,9 +13,10 @@ export class DelcivComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   public delCivs(id) {
+    const data = { id: id }
     console.log(id);
     this.http
-      .delete('http://localhost:3030/deleteciv', id)
+      .post('http://localhost:3030/deleteciv', data)
       .subscribe( res => {
         console.log(res);
       })
