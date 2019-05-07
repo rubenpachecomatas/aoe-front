@@ -22,7 +22,9 @@ export class AddcivComponent implements OnInit {
     console.log(civilization);
     this.http
       .post('http://localhost:3030/createciv', civilization)
-      .subscribe()
+      .subscribe( res => {
+        console.log(res);
+      })
   }
 
   ngOnInit() {

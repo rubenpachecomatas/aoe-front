@@ -8,12 +8,14 @@ import { DataAccessService } from './services/data-access.service';
 import { HttpClientModule } from "@angular/common/http";
 import { AddcivComponent } from './components/addciv/addciv.component';
 import { FormsModule } from '@angular/forms';
+import { DelcivComponent } from './components/delciv/delciv.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
-    AddcivComponent
+    AddcivComponent,
+    DelcivComponent
   ],
   imports: [
     BrowserModule,
