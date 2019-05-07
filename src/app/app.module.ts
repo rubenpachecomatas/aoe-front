@@ -9,13 +9,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { AddcivComponent } from './components/addciv/addciv.component';
 import { FormsModule } from '@angular/forms';
 import { DelcivComponent } from './components/delciv/delciv.component';
+import { ModcivComponent } from './components/modciv/modciv.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
     AddcivComponent,
-    DelcivComponent
+    DelcivComponent,
+    ModcivComponent
   ],
   imports: [
     BrowserModule,

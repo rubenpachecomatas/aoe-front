@@ -13,4 +13,19 @@ export class DataAccessService {
     const url = 'http://localhost:3030/civs';
     return this.http.get(url);
   }
+
+  addUrl(civilization): Observable<any> {
+    const url = 'http://localhost:3030/createciv';
+    return this.http.post(url, civilization);
+  }
+
+  delUrl(data): Observable<any> {
+    const url = 'http://localhost:3030/deleteciv';
+    return this.http.post(url, data);
+  }
+
+  modUrl(): Observable<any> {
+    const url = 'http://localhost:3030/civs';
+    return this.http.get(url);
+  }
 }
