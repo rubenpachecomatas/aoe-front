@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Civilization } from 'src/app/models/civilization';
-import { HttpClient } from "@angular/common/http";
+import { DataAccessService } from "../../services/data-access.service";
+
 
 @Component({
   selector: 'app-addciv',
@@ -16,13 +17,12 @@ export class AddcivComponent implements OnInit {
     army: ''
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private dataAccessService: DataAccessService) { }
 
   public postCivs(civilization) {
     console.log(civilization);
-    this.http
-      .post('http://localhost:3030/createciv', civilization)
-      .subscribe( res => {
+    this.dataAccessService.addUrl(civilization)
+    .subscribe( res => {
         console.log(res);
       })
   }

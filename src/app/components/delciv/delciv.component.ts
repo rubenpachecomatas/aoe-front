@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataAccessService } from "../../services/data-access.service";
 
 @Component({
   selector: 'app-delciv',
@@ -10,13 +10,12 @@ export class DelcivComponent implements OnInit {
 
   id = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private dataAccessService: DataAccessService) { }
 
   public delCivs(id) {
     const data = { id: id }
     console.log(id);
-    this.http
-      .post('http://localhost:3030/deleteciv', data)
+    this.dataAccessService.delUrl(data)
       .subscribe( res => {
         console.log(res);
       })
