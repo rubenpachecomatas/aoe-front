@@ -10,6 +10,7 @@ import { AddcivComponent } from './components/addciv/addciv.component';
 import { FormsModule } from '@angular/forms';
 import { DelcivComponent } from './components/delciv/delciv.component';
 import { ModcivComponent } from './components/modciv/modciv.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ModcivComponent } from './components/modciv/modciv.component';
     PrincipalComponent,
     AddcivComponent,
     DelcivComponent,
-    ModcivComponent
+    ModcivComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
