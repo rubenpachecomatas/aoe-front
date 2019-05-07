@@ -24,8 +24,8 @@ export class DataAccessService {
     return this.http.post(url, data);
   }
 
-  modUrl(): Observable<any> {
-    const url = 'http://localhost:3030/civs';
-    return this.http.get(url);
+  modUrl(data, civilization): Observable<any> {
+    const url = 'http://localhost:3030/updateciv';
+    return this.http.post(url, { data, civilization });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataAccessService } from "../../services/data-access.service";
 import { Civilization } from 'src/app/models/civilization';
 
 @Component({
@@ -18,13 +18,12 @@ export class ModcivComponent implements OnInit {
 
   _id;
 
-  constructor(private http: HttpClient) { }
+  constructor(private dataAccessService: DataAccessService) { }
 
   public ModCivs(civilization, _id) {
     console.log(civilization);
     const data = {id: this._id};
-    this.http
-      .post('http://localhost:3030/updateciv', {data, civilization})
+    this.dataAccessService.modUrl(data, civilization)
       .subscribe( res => {
         console.log(res);
       });
