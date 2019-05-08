@@ -9,7 +9,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="_id">_ID</label>  
     <div class="col-md-4">
-    <input [(ngModel)]="_id" id="_id" name="_id" type="text" placeholder="_id" class="form-control input-md" required="">
+    <input [(ngModel)]="civilization._id" id="_id" name="_id" type="text" placeholder="_id" class="form-control input-md" required="">
       
     </div>
   </div>
@@ -18,7 +18,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="id">ID</label>  
     <div class="col-md-4">
-    <input [(ngModel)]="civilization.id" id="id" name="id" type="number" placeholder="id" class="form-control input-md" required="">
+    <input [(ngModel)]="civilization.id" id="id" name="id" type="number" placeholder="id" class="form-control input-md">
       
     </div>
   </div>
@@ -27,7 +27,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="name">Name</label>  
     <div class="col-md-4">
-    <input [(ngModel)]="civilization.name" id="name" name="name" type="text" placeholder="name" class="form-control input-md" required="">
+    <input [(ngModel)]="civilization.name" id="name" name="name" type="text" placeholder="name" class="form-control input-md">
       
     </div>
   </div>
@@ -36,7 +36,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="expansion">Expansion</label>  
     <div class="col-md-4">
-    <input [(ngModel)]="civilization.expansion" id="expansion" name="expansion" type="text" placeholder="expansion" class="form-control input-md" required="">
+    <input [(ngModel)]="civilization.expansion" id="expansion" name="expansion" type="text" placeholder="expansion" class="form-control input-md">
       
     </div>
   </div>
@@ -45,7 +45,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="army">Army</label>  
     <div class="col-md-4">
-    <input [(ngModel)]="civilization.army" id="army" name="army" type="text" placeholder="army" class="form-control input-md" required="">
+    <input [(ngModel)]="civilization.army" id="army" name="army" type="text" placeholder="army" class="form-control input-md">
       
     </div>
   </div>
@@ -54,7 +54,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="send"></label>
     <div class="col-md-4">
-      <button (click)="ModCivs(civilization, _id)" id="send" name="send" class="btn btn-primary">Enviar</button>
+      <button (click)="ModCivs(civilization, civilization._id)" id="send" name="send" class="btn btn-primary">Enviar</button>
     </div>
   </div>
   

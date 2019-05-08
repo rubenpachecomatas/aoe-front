@@ -2,6 +2,8 @@
 <h1>Civilizations</h1>
 <ul>
   <li *ngFor="let civilization of civilizations">
-    {{civilization.name}}
+    <span (click)="sendIdToMod([(civilization._id)], [(civilization.id)], [(civilization.name)], [(civilization.expansion)], [(civilization.army)])">
+      {{civilization.name}}
+    </span>
   </li>
 </ul>

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DelcivComponent } from './components/delciv/delciv.component';
 import { ModcivComponent } from './components/modciv/modciv.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ConnToModService } from './services/conn-to-mod.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NavComponent } from './components/nav/nav.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataAccessService],
+  providers: [DataAccessService, ConnToModService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

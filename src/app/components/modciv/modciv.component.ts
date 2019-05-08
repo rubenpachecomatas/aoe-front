@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataAccessService } from "../../services/data-access.service";
 import { Civilization } from 'src/app/models/civilization';
+import { ConnToModService } from 'src/app/services/conn-to-mod.service';
 
 @Component({
   selector: 'app-modciv',
@@ -10,6 +11,7 @@ import { Civilization } from 'src/app/models/civilization';
 export class ModcivComponent implements OnInit {
 
   civilization: Civilization = {
+    _id: '',
     id: 0,
     name: '',
     expansion: '',
@@ -18,11 +20,12 @@ export class ModcivComponent implements OnInit {
 
   _id;
 
-  constructor(private dataAccessService: DataAccessService) { }
+  constructor(private dataAccessService: DataAccessService, private connToMod: ConnToModService) { }
 
   public ModCivs(civilization, _id) {
     console.log(civilization);
-    const data = {id: this._id};
+    const data = {id: _id};
+    console.log(data.id)
     this.dataAccessService.modUrl(data, civilization)
       .subscribe( res => {
         console.log(res);
@@ -30,6 +33,7 @@ export class ModcivComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.civilization = this.connToMod.getCiv();
   }
 
 }
