@@ -12,6 +12,7 @@ import { DelcivComponent } from './components/delciv/delciv.component';
 import { ModcivComponent } from './components/modciv/modciv.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConnToModService } from './services/conn-to-mod.service';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ConnToModService } from './services/conn-to-mod.service';
     AddcivComponent,
     DelcivComponent,
     ModcivComponent,
-    NavComponent
+    NavComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

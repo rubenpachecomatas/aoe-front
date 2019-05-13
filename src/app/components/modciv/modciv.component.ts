@@ -13,7 +13,6 @@ export class ModcivComponent implements OnInit {
 
   civilization: Civilization = {
     _id: '',
-    id: 0,
     name: '',
     expansion: '',
     army: ''
@@ -30,7 +29,7 @@ export class ModcivComponent implements OnInit {
     this.dataAccessService.modUrl(data, civilization)
       .subscribe( res => {
         console.log(res);
-        //this.router.navigate([`/home`])
+        this.router.navigate([`/home`]);
       });
   }
 

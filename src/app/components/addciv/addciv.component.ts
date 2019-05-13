@@ -11,7 +11,6 @@ import { DataAccessService } from "../../services/data-access.service";
 export class AddcivComponent implements OnInit {
 
   civilization: Civilization = {
-    id: 0,
     name: '',
     expansion: '',
     army: ''

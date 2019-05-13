@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataAccessService } from "../../services/data-access.service";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-delciv',
@@ -23,6 +24,7 @@ export class DelcivComponent implements OnInit {
     this.dataAccessService.delUrl(data)
       .subscribe( res => {
         console.log(res.message);
+        console.log(HttpErrorResponse);
         if (res.message === 'Deleted') {
           this.success = true;
         } else if (res.message === 'Null') {

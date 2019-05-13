@@ -1,9 +1,32 @@
 <app-nav></app-nav>
-<h1>Civilizations</h1>
-<ul>
-  <li *ngFor="let civilization of civilizations" (click)="sendIdToMod(civilization)">
-    <span>
-      {{civilization.name}}
-    </span>
-  </li>
-</ul>
+
+<div class="container" style="padding-top: 2%;">
+  <h1>Civilizations</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Expansion</th>
+            <th scope="col">Army</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let civilization of civilizations | filter:filterPost">
+            <td id="name" (click)="sendIdToMod(civilization)">{{civilization.name}}</td>
+            <td>{{civilization.expansion}}</td>
+            <td>{{civilization.army}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

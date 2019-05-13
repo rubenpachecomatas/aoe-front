@@ -12,6 +12,7 @@ import { ConnToModService } from 'src/app/services/conn-to-mod.service';
 export class PrincipalComponent implements OnInit {
 
   civilizations;
+  filterPost = '';
 
   constructor(private connToMod: ConnToModService, private dataAccessService: DataAccessService, public router: Router) {
     this.dataAccessService.getUrl().subscribe(res => {
