@@ -21,6 +21,12 @@
       <button (click)="delCivs(id)" id="del" name="del" class="btn btn-primary">Delete</button>
     </div>
   </div>
+  <div *ngIf="success == true" class="alert alert-success" role="alert">
+    Civilization deleted.
+  </div>
+  <div *ngIf="error == true" class="alert alert-danger" role="alert">
+    ERROR
+  </div>
   
   </fieldset>
   </form>

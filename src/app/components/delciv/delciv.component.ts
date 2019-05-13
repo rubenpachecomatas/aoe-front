@@ -10,15 +10,25 @@ export class DelcivComponent implements OnInit {
 
   id = '';
 
+  success: boolean;
+  error: boolean;
+
   constructor(private dataAccessService: DataAccessService) { }
 
   public delCivs(id) {
+    this.success = false;
+    this.error = false;
     const data = { id: id }
     console.log(id);
     this.dataAccessService.delUrl(data)
       .subscribe( res => {
-        console.log(res);
-      })
+        console.log(res.message);
+        if (res.message === 'Deleted') {
+          this.success = true;
+        } else if (res.message === 'Null') {
+          this.error = true;
+        }
+      });
   }
 
   ngOnInit() {

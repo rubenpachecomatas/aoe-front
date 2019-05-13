@@ -16,14 +16,23 @@ export class AddcivComponent implements OnInit {
     expansion: '',
     army: ''
   };
+  success: boolean;
+  error: boolean;
 
   constructor(private dataAccessService: DataAccessService) { }
 
   public postCivs(civilization) {
+    this.success = false;
+    this.error = false;
     console.log(civilization);
     this.dataAccessService.addUrl(civilization)
     .subscribe( res => {
         console.log(res);
+        if (res) {
+          this.success = true;
+        } else {
+          this.error = true;
+        }
       })
   }
 

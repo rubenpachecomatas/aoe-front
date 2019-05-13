@@ -13,7 +13,7 @@ export class PrincipalComponent implements OnInit {
 
   civilizations;
 
-  constructor(private connToMod: ConnToModService, private dataAccessService: DataAccessService, private router: Router) {
+  constructor(private connToMod: ConnToModService, private dataAccessService: DataAccessService, public router: Router) {
     this.dataAccessService.getUrl().subscribe(res => {
       this.civilizations = res;
     })
@@ -23,17 +23,11 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendIdToMod(_id, id, name, expansion, army) {
-    let civToMod: Civilization = {
-      _id: _id[0],
-      id: id[0],
-      name: name[0],
-      expansion: expansion[0],
-      army: army[0]
-    }
+  sendIdToMod(civilization) {
+    
 
-    this.connToMod.setCiv(civToMod);
-    console.log(_id, id, name, expansion, army);
+    this.connToMod.setCiv(civilization);
+    console.log(civilization);
     this.router.navigate([`/updateciv`]);
   }
 

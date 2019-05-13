@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataAccessService } from "../../services/data-access.service";
 import { Civilization } from 'src/app/models/civilization';
 import { ConnToModService } from 'src/app/services/conn-to-mod.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modciv',
@@ -20,7 +21,7 @@ export class ModcivComponent implements OnInit {
 
   _id;
 
-  constructor(private dataAccessService: DataAccessService, private connToMod: ConnToModService) { }
+  constructor(private dataAccessService: DataAccessService, private connToMod: ConnToModService, public router: Router) { }
 
   public ModCivs(civilization, _id) {
     console.log(civilization);
@@ -29,6 +30,7 @@ export class ModcivComponent implements OnInit {
     this.dataAccessService.modUrl(data, civilization)
       .subscribe( res => {
         console.log(res);
+        //this.router.navigate([`/home`])
       });
   }
 
