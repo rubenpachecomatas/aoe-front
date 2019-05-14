@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  password;
+  email;
+  newPassword;
+  error = 0;
+
+  constructor(public afAuth: AngularFireAuth) { }
 
   ngOnInit() {
+  }
+
+  changePass(email, password, newPassword) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((success) => {
+        const user = this.afAuth.auth.currentUser;
+        console.log(newPassword);
+        user.updatePassword(newPassword);
+      });
+    this.error = 1;
   }
 
 }

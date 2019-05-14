@@ -10,6 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginComponent implements OnInit {
 
   email;
+  emailR;
   password;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) { }
@@ -36,6 +37,14 @@ export class LoginComponent implements OnInit {
      .then((success) => {
         this.router.navigate([`/home`]);
      });
+  }
+
+  resPassword(emailR) {
+    this.afAuth.auth.sendPasswordResetEmail(emailR).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+    });
   }
 
   ngOnInit() {

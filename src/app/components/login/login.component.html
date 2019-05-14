@@ -11,3 +11,12 @@
   <button (click)="login(email, password)" name="login" id="login" class="btn btn-primary">Log In</button>
   <button (click)="signin(email, password)" name="signin" id="signin" class="btn btn-primary">Sign In</button>
 </form>
+
+<form class="col-md-4" style="padding-top: 2%;">
+  <div class="form-group">
+    <label for="emailR">Forgot password?</label>
+    <input [(ngModel)]="emailR" name="emailR" type="email" class="form-control" id="emailR" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+  </div>
+  <button (click)="resPassword(emailR)" name="reset" id="reset" class="btn btn-primary">Send me an email</button>
+</form>

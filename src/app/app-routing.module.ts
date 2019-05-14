@@ -6,9 +6,11 @@ import { DelcivComponent } from './components/delciv/delciv.component';
 import { ModcivComponent } from './components/modciv/modciv.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './components/user/user.component';
+import { ForgotpassComponent } from './components/forgotpass/forgotpass.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'resetpassword', component: ForgotpassComponent },
   { path: 'home', component: PrincipalComponent },
   { path: 'addciv', component: AddcivComponent },
   { path: 'deleteciv', component: DelcivComponent },

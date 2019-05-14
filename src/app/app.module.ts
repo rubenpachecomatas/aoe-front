@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { UserComponent } from './components/user/user.component';
+import { ForgotpassComponent } from './components/forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserComponent } from './components/user/user.component';
     NavComponent,
     FilterPipe,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    ForgotpassComponent
   ],
   imports: [
     BrowserModule,
