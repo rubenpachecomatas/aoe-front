@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<div *ngIf="!(authService.checkUser())">
+    <app-login></app-login>
+</div>
+<div *ngIf="authService.checkUser()">
+    <router-outlet></router-outlet>
+</div>

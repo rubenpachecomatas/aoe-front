@@ -13,6 +13,11 @@ import { ModcivComponent } from './components/modciv/modciv.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConnToModService } from './services/conn-to-mod.service';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './components/login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +27,17 @@ import { FilterPipe } from './pipes/filter.pipe';
     DelcivComponent,
     ModcivComponent,
     NavComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [DataAccessService, ConnToModService],
   bootstrap: [AppComponent]

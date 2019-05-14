@@ -4,12 +4,16 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { AddcivComponent } from './components/addciv/addciv.component';
 import { DelcivComponent } from './components/delciv/delciv.component';
 import { ModcivComponent } from './components/modciv/modciv.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: PrincipalComponent },
   { path: 'addciv', component: AddcivComponent },
   { path: 'deleteciv', component: DelcivComponent },
   { path: 'updateciv', component: ModcivComponent },
+  { path: 'user', component: UserComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

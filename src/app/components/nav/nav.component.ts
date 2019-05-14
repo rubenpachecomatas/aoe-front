@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-nav',
@@ -8,13 +9,17 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public afAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
 
   onSelect(feature: string){
     this.router.navigate([`/` + feature])
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
 
 }
