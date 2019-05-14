@@ -9,6 +9,7 @@ export class ConnToModService {
   constructor() { }
 
   CivFromService: Civilization;
+  error = 0;
 
   setCiv(Civ) {
     this.CivFromService = Civ;
@@ -18,5 +19,15 @@ export class ConnToModService {
   getCiv() {
     console.log(this.CivFromService);
     return this.CivFromService;
+  }
+
+  setError(error) {
+    this.error = error;
+    console.log(this.error);
+  }
+  
+  getError() {
+    console.log(this.error);
+    return this.error;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataAccessService } from "../../services/data-access.service";
+import { DataAccessService } from '../../services/data-access.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -11,24 +11,25 @@ export class DelcivComponent implements OnInit {
 
   id = '';
 
-  success: boolean;
-  error: boolean;
+  error;
 
   constructor(private dataAccessService: DataAccessService) { }
 
   public delCivs(id) {
-    this.success = false;
-    this.error = false;
-    const data = { id: id }
+    this.error = 0;
+    const data = { id: id };
     console.log(id);
     this.dataAccessService.delUrl(data)
-      .subscribe( res => {
-        console.log(res.message);
-        console.log(HttpErrorResponse);
+      .subscribe(res => {
         if (res.message === 'Deleted') {
-          this.success = true;
+          this.error = 1;
         } else if (res.message === 'Null') {
-          this.error = true;
+          this.error = 2;
+        }
+      },
+      error => {
+        if (error.status === 500) {
+          this.error = 3;
         }
       });
   }

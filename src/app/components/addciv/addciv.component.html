@@ -39,10 +39,10 @@
       <button (click)="postCivs(civilization)" id="send" name="send" class="btn btn-primary">Enviar</button>
     </div>
   </div>
-  <div *ngIf="success == true" class="alert alert-success" role="alert">
+  <div *ngIf="error == 1" class="alert alert-success" role="alert">
     Civilization added.
   </div>
-  <div *ngIf="error == true" class="alert alert-success" role="alert">
+  <div *ngIf="error == 2" class="alert alert-success" role="alert">
     ERROR
   </div>
   

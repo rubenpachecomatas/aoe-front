@@ -12,6 +12,7 @@ import { ConnToModService } from 'src/app/services/conn-to-mod.service';
 export class PrincipalComponent implements OnInit {
 
   civilizations;
+  error = 0;
   filterPost = '';
 
   constructor(private connToMod: ConnToModService, private dataAccessService: DataAccessService, public router: Router) {
@@ -22,6 +23,9 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.error = this.connToMod.getError();
+    console.log(this.error);
+    this.connToMod.setError(0);
   }
 
   sendIdToMod(civilization) {

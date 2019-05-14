@@ -1,5 +1,11 @@
 <app-nav></app-nav>
 
+<div *ngIf="error == 1" class="alert alert-success" role="alert">
+  Civilization modified.
+</div>
+<div *ngIf="error == 2" class="alert alert-danger" role="alert">
+  ERROR.
+</div>
 <div class="container" style="padding-top: 2%;">
   <h1>Civilizations</h1>
   <div class="row">

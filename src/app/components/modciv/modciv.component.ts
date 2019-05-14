@@ -19,16 +19,31 @@ export class ModcivComponent implements OnInit {
   };
 
   _id;
+  error;
 
   constructor(private dataAccessService: DataAccessService, private connToMod: ConnToModService, public router: Router) { }
 
   public ModCivs(civilization, _id) {
+    this.error = 0;
     console.log(civilization);
     const data = {id: _id};
     console.log(data.id)
     this.dataAccessService.modUrl(data, civilization)
       .subscribe( res => {
         console.log(res);
+        if (res) {
+          this.error = 1;
+          this.connToMod.setError(this.error);
+          this.router.navigate([`/home`]);
+        } else {
+          this.error = 2;
+          this.connToMod.setError(this.error);
+          this.router.navigate([`/home`]);
+        }
+      },
+      error => {
+        this.error = 2;
+        this.connToMod.setError(this.error);
         this.router.navigate([`/home`]);
       });
   }
