@@ -12,7 +12,16 @@
   <button (click)="signin(email, password)" name="signin" id="signin" class="btn btn-primary">Sign In</button>
 </form>
 
-<form class="col-md-4" style="padding-top: 2%;">
+<div style="margin-top: 2%;" *ngIf="error == 1" class="alert alert-danger" role="alert">
+  ERROR.
+  {{message}}
+</div>
+<div style="margin-top: 2%;" *ngIf="error == 2" class="alert alert-danger" role="alert">
+  ERROR.
+  {{message}}
+</div>
+
+<form class="col-md-4" style="margin-top: 2%;">
   <div class="form-group">
     <label for="emailR">Forgot password?</label>
     <input [(ngModel)]="emailR" name="emailR" type="email" class="form-control" id="emailR" aria-describedby="emailHelp" placeholder="Enter email">
@@ -20,3 +29,11 @@
   </div>
   <button (click)="resPassword(emailR)" name="reset" id="reset" class="btn btn-primary">Send me an email</button>
 </form>
+
+<div style="margin-top: 2%;" *ngIf="error == 3" class="alert alert-danger" role="alert">
+  ERROR.
+  {{message}}
+</div>
+<div style="margin-top: 2%;" *ngIf="error == 4" class="alert alert-success" role="alert">
+  A Email has been sent.
+</div>

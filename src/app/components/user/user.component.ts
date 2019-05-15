@@ -19,13 +19,18 @@ export class UserComponent implements OnInit {
   }
 
   changePass(email, password, newPassword) {
+    this.error = 1;
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((success) => {
         const user = this.afAuth.auth.currentUser;
         console.log(newPassword);
-        user.updatePassword(newPassword);
+        user.updatePassword(newPassword)
+        .catch(error => {
+          this.error = 2;
+        });
+      }).catch(error => {
+          this.error = 2;
       });
-    this.error = 1;
   }
 
 }

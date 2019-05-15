@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   email;
   emailR;
   password;
+  error = 0;
+  message;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
@@ -20,14 +22,8 @@ export class LoginComponent implements OnInit {
       .then((success) => {
         this.router.navigate([`/home`]);
       }).catch((error) =>  {
-        // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
-        } else {
-          alert(errorMessage);
-        }
+        this.error = 1;
+        this.message = error.message;
         console.log(error);
       });
   }
@@ -36,14 +32,20 @@ export class LoginComponent implements OnInit {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
      .then((success) => {
         this.router.navigate([`/home`]);
-     });
+     }).catch((error) =>  {
+      this.error = 2;
+      this.message = error.message;
+      console.log(error);
+    });
   }
 
   resPassword(emailR) {
+    this.error = 4;
     this.afAuth.auth.sendPasswordResetEmail(emailR).then(function() {
       // Email sent.
-    }).catch(function(error) {
-      // An error happened.
+    }).catch(error => {
+      this.error = 3;
+      this.message = error.message;
     });
   }
 
