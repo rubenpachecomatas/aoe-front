@@ -26,8 +26,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let civilization of civilizations | filter:filterPost">
-            <td id="name" (click)="sendIdToMod(civilization)">{{civilization.name}}</td>
+          <tr id="row" (click)="sendIdToMod(civilization)" *ngFor="let civilization of civilizations | filter:filterPost">
+            <td>{{civilization.name}}</td>
             <td>{{civilization.expansion}}</td>
             <td>{{civilization.army}}</td>
           </tr>
