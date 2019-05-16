@@ -1,0 +1,13 @@
+li {
+    font-family: 'Press Start 2P', cursive;
+}
+
+nav {
+    background-color: white;
+}
+
+@media (min-width: 992px){
+    #icon {
+        width: 50%;
+    }
+}
