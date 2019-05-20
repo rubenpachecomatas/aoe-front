@@ -14,10 +14,6 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(feature: string){
-    this.router.navigate([`/` + feature])
-  }
-
   logout() {
     this.afAuth.auth.signOut();
   }

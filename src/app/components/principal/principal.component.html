@@ -1,11 +1,16 @@
 <app-nav></app-nav>
 
-<div *ngIf="error == 1" class="alert alert-success" role="alert">
+<div *ngIf="error == 1" class="alert alert-success text-center" role="alert">
   Civilization modified.
 </div>
-<div *ngIf="error == 2" class="alert alert-danger" role="alert">
+<div *ngIf="error == 2" class="alert alert-danger text-center" role="alert">
   ERROR.
 </div>
+
+<div *ngIf="errorD == 'notdeleted'" class="alert alert-danger text-center" role="alert">
+  Something gone wrong.
+</div>
+
 <div class="container" style="padding-top: 2%; text-align: center">
   <h1>Civilizations</h1>
   <div class="row">
@@ -23,13 +28,41 @@
             <th scope="col">Name</th>
             <th scope="col">Expansion</th>
             <th scope="col">Army</th>
+            <th scope="col"><i class="fa fa-trash text-danger" style="font-size: 1.8em; visibility:hidden;"></i></th>
           </tr>
         </thead>
-        <tbody>
-          <tr id="row" (click)="sendIdToMod(civilization)" *ngFor="let civilization of civilizations | filter:filterPost">
-            <td>{{civilization.name}}</td>
-            <td>{{civilization.expansion}}</td>
-            <td>{{civilization.army}}</td>
+        <tbody *ngFor="let civilization of civilizations | filter:filterPost">
+          <tr id="row">
+            <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">
+              {{civilization.name}}
+            </td>
+            <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">{{civilization.expansion}}</td>
+            <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">{{civilization.army}}</td>
+            <td id="delete" style="border-top: 0;">
+                <i data-toggle="modal" (click)="saveId = civilization._id" data-target="#deleteConfirmation" class="fa fa-trash text-danger" style="font-size: 1.8em; margin-top: 5%;"></i>
+            </td>
+
+              <!--Delete Confirmation-->
+            <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content text-center">
+                  <div class="modal-header text-center">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure mate? Are you okay? Live isn't a game.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="delCivs()" type="button" data-dismiss="modal" class="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </tr>
         </tbody>
       </table>

@@ -13,7 +13,10 @@ export class PrincipalComponent implements OnInit {
 
   civilizations;
   error = 0;
+  errorD = '';
   filterPost = '';
+  show = false;
+  saveId = '';
 
   constructor(private connToMod: ConnToModService, private dataAccessService: DataAccessService, public router: Router) {
     this.dataAccessService.getUrl().subscribe(res => {
@@ -29,11 +32,26 @@ export class PrincipalComponent implements OnInit {
   }
 
   sendIdToMod(civilization) {
-    
-
     this.connToMod.setCiv(civilization);
     console.log(civilization);
     this.router.navigate([`/updateciv`]);
   }
 
+  public delCivs() {
+    const data = { id: this.saveId };
+    this.dataAccessService.delUrl(data)
+      .subscribe(res => {
+        if (res.message === 'Deleted') {
+          location.reload();
+        } else if (res.message === 'Null') {
+          this.errorD = 'notdeleted';
+        }
+      },
+      error => {
+        if (error.status === 500) {
+          this.errorD = 'notdeleted';
+        }
+      });
+  }
+  
 }

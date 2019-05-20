@@ -2,3 +2,10 @@
     background-color: rgb(230, 230, 230);
     cursor: pointer;
 }
+#delete {
+    display: none;
+}
+
+#row:hover #delete{
+    display: inline;
+}
