@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataAccessService } from "../../services/data-access.service";
+import { DataAccessService } from '../../services/data-access.service';
 import { Router } from '@angular/router';
-import { Civilization } from 'src/app/models/civilization';
 import { ConnToModService } from 'src/app/services/conn-to-mod.service';
 
 @Component({

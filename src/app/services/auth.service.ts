@@ -14,6 +14,7 @@ export class AuthService {
 
     this.afAuth.authState.subscribe(res => {
       this.authState = res;
+      console.log('authstate', this.authState);
     });
   }
 
@@ -24,5 +25,11 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  // Log Out
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }

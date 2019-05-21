@@ -31,7 +31,13 @@ export class LoginComponent implements OnInit {
   signin(email, password) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
      .then((success) => {
-        this.router.navigate([`/home`]);
+       const name = email.substring(0, email.lastIndexOf('@'));
+       console.log(name);
+       this.afAuth.auth.currentUser.updateProfile({
+         displayName: name
+       });
+       console.log(this.afAuth.auth.currentUser.displayName);
+       this.router.navigate([`/home`]);
      }).catch((error) =>  {
       this.error = 2;
       this.message = error.message;

@@ -15,7 +15,7 @@
   <h1>Civilizations</h1>
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="form-group" style="text-align: center; margin: 0 auto;">
         <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
       </div>
     </div>
@@ -33,9 +33,7 @@
         </thead>
         <tbody *ngFor="let civilization of civilizations | filter:filterPost">
           <tr id="row">
-            <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">
-              {{civilization.name}}
-            </td>
+            <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">{{civilization.name}}</td>
             <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">{{civilization.expansion}}</td>
             <td  (mouseover)="show = true" (mouseout)="show = false" (click)="sendIdToMod(civilization)">{{civilization.army}}</td>
             <td id="delete" style="border-top: 0;">
@@ -53,7 +51,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    Are you sure mate? Are you okay? Live isn't a game.
+                    Are you sure mate? Are you okay? Life isn't a game.
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

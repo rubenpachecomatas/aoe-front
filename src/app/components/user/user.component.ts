@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
   password;
   email;
   newPassword;
+  name;
   error = 0;
 
   constructor(public afAuth: AngularFireAuth) { }
@@ -31,6 +32,16 @@ export class UserComponent implements OnInit {
       }).catch(error => {
           this.error = 2;
       });
+  }
+
+  changeName(name) {
+    this.error = 3;
+    const user = this.afAuth.auth.currentUser;
+    user.updateProfile({
+      displayName: name
+    }).catch(error => {
+      this.error = 4;
+    })
   }
 
 }

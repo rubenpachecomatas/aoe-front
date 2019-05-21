@@ -1,39 +1,46 @@
-<form class="col-md-4">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input [(ngModel)]="password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <button (click)="login(email, password)" name="login" id="login" class="btn btn-primary">Log In</button>
-  <button (click)="signin(email, password)" name="signin" id="signin" class="btn btn-primary">Sign In</button>
-</form>
+<div class="container col-xl-4 col-lg-6 col-md-8 col-sm-10" id="wannaCenter">
+  <form class="form-horizontal" style="margin-bottom: 10%;">
+    <h1>LOGIN</h1>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="exampleInputEmail1">Email address</label>
+      <input [(ngModel)]="email" name="email" type="email" class="form-control input-md" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+      <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="exampleInputPassword1">Password</label>
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+    </div>
+    <button (click)="login(email, password)" name="login" id="login" class="btn btn-success">Log In</button>
+    <button style="margin-left: 1%;" (click)="signin(email, password)" name="signin" id="signin" class="btn btn-dark">Sign In</button>
 
-<div style="margin-top: 2%;" *ngIf="error == 1" class="alert alert-danger" role="alert">
-  ERROR.
-  {{message}}
-</div>
-<div style="margin-top: 2%;" *ngIf="error == 2" class="alert alert-danger" role="alert">
-  ERROR.
-  {{message}}
-</div>
+    <div style="margin-top: 2%;" *ngIf="error == 1" class="alert alert-danger" role="alert">
+      ERROR.
+      {{message}}
+    </div>
+    <div style="margin-top: 2%;" *ngIf="error == 2" class="alert alert-danger" role="alert">
+      ERROR.
+      {{message}}
+    </div>
 
-<form class="col-md-4" style="margin-top: 2%;">
-  <div class="form-group">
-    <label for="emailR">Forgot password?</label>
-    <input [(ngModel)]="emailR" name="emailR" type="email" class="form-control" id="emailR" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
-  </div>
-  <button (click)="resPassword(emailR)" name="reset" id="reset" class="btn btn-primary">Send me an email</button>
-</form>
+  </form>
 
-<div style="margin-top: 2%;" *ngIf="error == 3" class="alert alert-danger" role="alert">
-  ERROR.
-  {{message}}
-</div>
-<div style="margin-top: 2%;" *ngIf="error == 4" class="alert alert-success" role="alert">
-  A Email has been sent.
+  <hr/>
+
+  <form class="form-horizontal" style="margin-top: 10%;">
+    <h1>Forgot password</h1>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="emailR">Email</label>
+      <input [(ngModel)]="emailR" name="emailR" type="email" class="form-control" id="emailR" aria-describedby="emailHelp" placeholder="Enter your email">
+    </div>
+    <button (click)="resPassword(emailR)" name="reset" id="reset" class="btn btn-dark">Send me an email</button>
+
+    <div style="margin-top: 2%;" *ngIf="error == 3" class="alert alert-danger" role="alert">
+      ERROR.
+      {{message}}
+    </div>
+    <div style="margin-top: 2%;" *ngIf="error == 4" class="alert alert-success" role="alert">
+      A Email has been sent.
+    </div>
+
+  </form>
 </div>

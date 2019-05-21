@@ -1,0 +1,14 @@
+input {
+    text-align: center;
+}
+
+#wannaCenter {
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+}
+
+#icon {
+    text-align: center;
+    width: 100%;
+}
